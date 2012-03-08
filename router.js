@@ -9,7 +9,6 @@ function route(handlers, pathname, request, response) {
   // Route the request
   if (typeof handlers[pathname] === 'function') {
     response.writeHead(200, {"Content-Type": "text/plain"});
-
     handlers[pathname](request, response);
   } else {
     console.log("No handler found for '" + pathname + "'");
