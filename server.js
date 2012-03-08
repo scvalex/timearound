@@ -5,7 +5,7 @@ function start(listenPort, route) {
   var url = require("url");
 
   http.createServer(function(request, response) {
-    route(url.parse(request.url).pathname, response);
+    route(url.parse(request.url).pathname, request, response);
   }).listen(listenPort);
 
   console.log("Server started on", listenPort);

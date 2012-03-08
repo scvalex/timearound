@@ -12,6 +12,6 @@ var handlers = {
   "/upload": requestHandlers.upload
 };
 
-server.start(8888, function(filepath, response) {
-  router.route(handlers, filepath, response)
+server.start(8888, function(filepath, request, response) {
+  router.route(handlers, filepath, request, response)
 });
