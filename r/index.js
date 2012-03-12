@@ -134,6 +134,10 @@ function TimearoundModel() {
     console.log("Attending", ev);
     ev.attending(!ev.attending());
   }
+
+  self.announceEvent = function() {
+    console.log("Announcing a new event");
+  }
 }
 
 function populateModel() {

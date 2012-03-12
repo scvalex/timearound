@@ -137,6 +137,10 @@ a:hover {
     width: 200px;
 }
 
+.centering {
+    text-align: center;
+}
+
 footer {
     font-size: 1.2em;
     font-weight: bold;

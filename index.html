@@ -153,6 +153,12 @@
               </li>
             </ul>
           </div>
+          <div data-bind="visible: isLoggedIn">
+            <a class="btn" data-bind="click: announceEvent">
+              <i class="icon-plus"></i>
+              Announce Event
+            </a>
+          </div>
         </div>
 
         <div class="span9" data-bind="visible: typeof selectedCategory() == 'undefined'">
