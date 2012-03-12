@@ -11,6 +11,15 @@ a:hover {
 }
 
 .nav-list .active > a {
+    display: block;
     background-color: #999999;
     font-weight: bold;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.nav-list .active > a:hover {
+    background-color: #777777;
 }
