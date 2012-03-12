@@ -42,6 +42,11 @@ function TimearoundModel() {
     }
     return selEvs;
   });
+  self.currentEvent = ko.observable({"category":"",
+                                     "short": "",
+                                     "long": "",
+                                     "date": "",
+                                     "place": ""});
 
   self.showLogin = function() {
     $("#loginBox").modal();
@@ -79,6 +84,12 @@ function TimearoundModel() {
     console.log("Back to home");
     toggleActive(event);
     self.selectedCategory(undefined);
+  }
+
+  self.showEventDetails = function(what) {
+    console.log("Showing event detail for", what);
+    self.currentEvent(what);
+    $("#eventBox").modal();
   }
 }
 
