@@ -42,3 +42,12 @@ a:hover {
 .eventList {
     min-height: 600px;
 }
+
+footer {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+footer a {
+    text-decoration: underline;
+}
