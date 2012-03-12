@@ -91,6 +91,23 @@ a:hover {
     min-height: 24em;
 }
 
+#eventBox .span5 {
+    margin-left: 0;
+}
+
+#eventDescription {
+    margin-top: 2em;
+    font-family: "Comic Sans MS";
+}
+
+#reviewBox {
+    margin-top: 2em;
+}
+
+#reviewBox h4 {
+    border-bottom: 2px solid #999;
+}
+
 #mapCanvas {
     float: right;
     height: 200px;

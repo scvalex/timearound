@@ -75,6 +75,13 @@
         <h5>When: <span data-bind="text: currentEvent().date"></span></h5>
         <h5>Where: <span data-bind="text: currentEvent().place"></span></h5>
         <div id="mapCanvas"></div>
+
+        <div id="eventDescription" class="span5"
+             data-bind="text: currentEvent().long"></div>
+
+        <div id="reviewBox" class="span5">
+          <h4>Reviews</h4>
+        </div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn btn-primary">Attend</a>

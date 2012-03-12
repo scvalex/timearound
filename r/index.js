@@ -96,7 +96,7 @@ function TimearoundModel() {
       function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var loc = results[0].geometry.location;
-          loc = new google.maps.LatLng(loc.lat() + 0.002, loc.lng() - 0.002);
+          loc = new google.maps.LatLng(loc.lat() + 0.001, loc.lng() - 0.001);
           map.setCenter(loc);
           var marker = new google.maps.Marker({
             map: map,
