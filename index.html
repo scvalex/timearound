@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="r/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="r/bootstrap/css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="r/index.css" />
+
+    <script type="text/javascript" src="r/mootools-1.4.5.js"></script>
+    <script type="text/javascript" src="r/knockout-2.0.0.js"></script>
+    <script type="text/javascript" src="r/index.js"></script>
   </head>
 
   <body>
@@ -19,10 +23,15 @@
             <img style="width: 400px" src="r/logo-small.png" alt="Timearound"/>
           </a>
           <div class="nav-collapse" style="margin-top: 4px">
-            <p class="navbar-text pull-right">
+            <p class="navbar-text pull-right"
+               data-bind="visible: !isLoggedIn()">
               <a class="btn" href="#">Register</a>
               &nbsp; &nbsp;
               <a class="btn" href="#">Login</a>
+            </p>
+            <p class="navbar-text pull-right"
+               data-bind="visible: isLoggedIn()">
+              You are logged in as <a href="#" data-bind="text: username"></a>
             </p>
           </div>
         </div>
