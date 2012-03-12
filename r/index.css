@@ -23,3 +23,8 @@ a:hover {
 .nav-list .active > a:hover {
     background-color: #777777;
 }
+
+#loggedInText {
+    font-size: 1.2em;
+    line-height: 3em;
+}

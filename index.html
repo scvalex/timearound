@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="r/bootstrap/css/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="r/index.css" />
 
-    <script type="text/javascript" src="r/mootools-1.4.5.js"></script>
+    <script type="text/javascript" src="r/jquery.min.js"></script>
+    <script type="text/javascript" src="r/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="r/knockout-2.0.0.js"></script>
     <script type="text/javascript" src="r/index.js"></script>
   </head>
@@ -27,14 +28,37 @@
                data-bind="visible: !isLoggedIn()">
               <a class="btn" href="#">Register</a>
               &nbsp; &nbsp;
-              <a class="btn" href="#">Login</a>
+              <a class="btn" href="#" data-bind="click: showLogin">Login</a>
             </p>
             <p class="navbar-text pull-right"
                data-bind="visible: isLoggedIn()">
-              You are logged in as <a href="#" data-bind="text: username"></a>
+              <span id="loggedInText">
+                You are logged in as <a href="#" data-bind="text: username"></a>
+              </span>
             </p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div style="display: none" class="modal" id="loginBox">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Login</h3>
+      </div>
+      <div class="modal-body">
+        <form data-bind="submit: doLogin">
+          <label>Username</label>
+          <input type="text" class="span3" placeholder="john123"
+                 data-bind="value: enteredUsername">
+          <label>Password</label>
+          <input type="password" class="span3">
+          <input type="submit" style="visibility: hidden" value="Login" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn btn-primary" data-bind="click: doLogin">Login</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
       </div>
     </div>
 
