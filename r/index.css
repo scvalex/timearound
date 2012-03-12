@@ -29,6 +29,10 @@ a:hover {
     line-height: 3em;
 }
 
+#loggedInText .icon-user {
+    margin-top: 3px;
+}
+
 .small {
     font-size: 0.9em;
     float: right;
