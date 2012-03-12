@@ -84,8 +84,9 @@ a:hover {
 
 .eventDescription {
     color: #333;
-    margin: 6px 0;
     font-family: "Comic Sans MS";
+    margin: 6px 0;
+    width: 380px;
 }
 
 #eventBox {
@@ -109,6 +110,9 @@ a:hover {
 .signature {
     text-align: right;
     font-family: "Comic Sans MS";
+    margin-top: -4px;
+    margin-bottom: 1em;
+    width: 300px;
 }
 
 #reviewBox {
