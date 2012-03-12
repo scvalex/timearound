@@ -92,7 +92,7 @@
           ~<span data-bind="text: currentEvent().owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
-        <div id="reviewBox" class="span4" data-bind="visible: currentEvent().reviews.length > 0">
+        <div id="reviewBox" data-bind="visible: currentEvent().reviews.length > 0">
           <h4>Guestbook</h4>
           <ul data-bind="foreach: currentEvent().reviews">
             <li>
@@ -108,6 +108,7 @@
           </ul>
         </div>
       </div>
+
       <div class="modal-footer">
         <a href="#" class="btn btn-primary" data-bind="click: attendCurrentEvent">
           <span data-bind="visible: !currentEvent().attending()">

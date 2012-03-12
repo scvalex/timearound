@@ -229,9 +229,12 @@ function populateModel() {
 
   for (var i = 0; i < events.length; i++) {
     events[i].reviews = [];
-    var numReviews = rand(0, 3);
+    var numReviews = rand(1, 6);
     for (var j = 0; j < numReviews; j++) {
-      events[i].reviews.push(someReviews[rand(0, someReviews.length - 1)]);
+      var r = someReviews[rand(0, someReviews.length - 1)];
+      if (events[i].reviews.indexOf(r) == -1) {
+        events[i].reviews.push(r);
+      }
     }
   }
 
