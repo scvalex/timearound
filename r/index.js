@@ -6,8 +6,8 @@ function TimearoundModel() {
     return self.username().length > 0;
   });
   self.enteredUsername = ko.observable("");
-  self.events = ko.observable([]);
-  self.ads = ko.observable([]);
+  self.events = ko.observableArray([]);
+  self.ads = ko.observableArray([]);
   self.categories = ko.computed(function() {
     var cats = {};
     var evs = self.events();
@@ -47,7 +47,9 @@ function TimearoundModel() {
                                      "long": "",
                                      "date": "",
                                      "place": "",
-                                     "reviews": []});
+                                     "reviews": [],
+                                     "attending": ko.observable(false),
+                                    });
 
   self.showLogin = function() {
     $("#loginBox").modal();
@@ -109,6 +111,15 @@ function TimearoundModel() {
         }
       });
   }
+
+  self.attendCurrentEvent = function() {
+    self.attendEvent(self.currentEvent());
+  }
+
+  self.attendEvent = function(ev) {
+    console.log("Attending", ev);
+    ev.attending(!ev.attending());
+  }
 }
 
 function populateModel() {
@@ -119,6 +130,7 @@ function populateModel() {
      "date": "Today at 2pm",
      "place": "Jessica Rd",
      "owner": "Jessica",
+     "attending": ko.observable(false),
     },
     {"category": "Board Games",
      "short": "Vampirology",
@@ -126,6 +138,7 @@ function populateModel() {
      "date": "Friday at 7pm",
      "place": "Quarry Rd",
      "owner": "Ingrid",
+     "attending": ko.observable(false),
     },
     {"category": "Board Games",
      "short": "Strategists wanted!",
@@ -133,6 +146,7 @@ function populateModel() {
      "date": "Sunday at 4pm",
      "place": "Cicada Rd",
      "owner": "John",
+     "attending": ko.observable(false),
     },
     {"category": "Cooking",
      "short": "Let's cook some meat!",
@@ -140,6 +154,7 @@ function populateModel() {
      "date": "Friday at 6pm",
      "place": "Aspley Rd",
      "owner": "Hans",
+     "attending": ko.observable(false),
     },
     {"category": "Cooking",
      "short": "Spicy spicy",
@@ -147,6 +162,7 @@ function populateModel() {
      "date": "Saturday at 1pm",
      "place": "St. Ann's Crescent",
      "owner": "Laxshmi",
+     "attending": ko.observable(false),
     },
     {"category": "Lunch",
      "short": "Lunch by the river",
@@ -154,6 +170,7 @@ function populateModel() {
      "date": "Saturday at 12.30am",
      "place": "Tonsley Pl",
      "owner": "Gabrielle",
+     "attending": ko.observable(false),
     },
     {"category": "Walks",
      "short": "Jack the Ripper",
@@ -161,6 +178,7 @@ function populateModel() {
      "date": "Friday at 11pm",
      "place": "Spencer Park",
      "owner": "'Jack'",
+     "attending": ko.observable(true),
     },
     {"category": "Walks",
      "short": "Geocachers",
@@ -168,6 +186,7 @@ function populateModel() {
      "date": "Sunday at 10am",
      "place": "Battersea Power Station",
      "owner": "Alex",
+     "attending": ko.observable(false),
     },
   ];
 

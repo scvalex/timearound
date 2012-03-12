@@ -69,7 +69,13 @@
     <div style="display: none" class="modal" id="eventBox">
       <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
-        <h3 data-bind="text: currentEvent()['short']"></h3>
+        <h3>
+          <span data-bind="text: currentEvent()['short']"></span>
+          <i class="icon-star"
+             data-bind="visible: currentEvent().attending()"></i>
+          <i class="icon-star-empty"
+             data-bind="visible: !currentEvent().attending()"></i>
+        </h3>
       </div>
       <div class="modal-body">
         <h5>When: <span data-bind="text: currentEvent().date"></span></h5>
@@ -87,12 +93,8 @@
           <ul data-bind="foreach: currentEvent().reviews">
             <li>
               <div>
-                <span data-bind="visible: positive">
-                  <i class="icon-ok"></i>
-                </span>
-                <span data-bind="visible: !positive">
-                  <i class="icon-remove"></i>
-                </span>
+                <i class="icon-ok" data-bind="visible: positive"></i>
+                <i class="icon-remove" data-bind="visible: !positive"></i>
                 <span data-bind="text: short"></span>
               </div>
               <div class="signature">
@@ -103,7 +105,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn btn-primary">Attend</a>
+        <a href="#" class="btn btn-primary" data-bind="click: attendCurrentEvent">
+          <span data-bind="visible: !currentEvent().attending()">
+            Attend
+          </span>
+          <span data-bind="visible: currentEvent().attending()">
+            Leave
+          </span>
+        </a>
         <a href="#" class="btn" data-dismiss="modal">Close</a>
       </div>
     </div>
@@ -164,7 +173,13 @@
           <h1 data-bind="text: selectedCategory"></h1>
           <ul data-bind="foreach: selectedEvents">
             <li class="span5">
-              <h2 data-bind="text: short"></h2>
+              <h2>
+                <span data-bind="text: short"></span>
+                <i class="icon-star"
+                   data-bind="visible: attending()"></i>
+                <i class="icon-star-empty"
+                   data-bind="visible: !attending()"></i>
+              </h2>
               <h5><i class="icon-calendar"></i> <span data-bind="text: date"></span></h5>
               <h5><i class="icon-map-marker"></i> Around <span data-bind="text: place"></span><h5>
               <div class="eventDescription" data-bind="text: long"></div>
@@ -175,6 +190,14 @@
                 <a href="#" class="btn" data-bind="click: $root.showEventDetails">
                   <i class="icon-list-alt"></i>
                   Event Details
+                </a>
+                <a href="#" class="btn" data-bind="click: $root.attendEvent">
+                  <span data-bind="visible: !attending()">
+                    Attend
+                  </span>
+                  <span data-bind="visible: attending()">
+                    Leave
+                  </span>
                 </a>
               </div>
             </li>
