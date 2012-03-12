@@ -47,8 +47,39 @@ a:hover {
     float: right;
 }
 
-.eventList {
+#eventList {
     min-height: 600px;
+}
+
+#eventList ul {
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+#eventList li {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+
+    border-top: 2px solid #333;
+
+    margin: 1em 0px;
+    padding: 0.3em;
+}
+
+#eventList li h5 {
+    color: #666;
+}
+
+#eventList .btnContainer {
+    padding-top: 3px;
+    text-align: center;
+}
+
+.eventDescription {
+    color: #333;
+    margin: 6px 0;
+    font-family: "Comic Sans MS";
 }
 
 footer {

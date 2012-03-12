@@ -126,12 +126,20 @@
           </div>
         </div>
 
-        <div class="eventList span6" data-bind="visible: typeof selectedCategory() != 'undefined'">
+        <div id="eventList" class="span6" data-bind="visible: typeof selectedCategory() != 'undefined'">
           <h1 data-bind="text: selectedCategory"></h1>
           <ul data-bind="foreach: selectedEvents">
-            <li>
+            <li class="span5">
               <h2 data-bind="text: short"></h2>
-              <span data-bind="text: long"></span>
+              <h5><i class="icon-calendar"></i> <span data-bind="text: date"></span></h5>
+              <h5><i class="icon-map-marker"></i> Around <span data-bind="text: place"></span><h5>
+              <div class="eventDescription" data-bind="text: long"></div>
+              <div class="btnContainer">
+                <a href="#" class="btn">
+                  <i class="icon-list-alt"></i>
+                  Event Details
+                </a>
+              </div>
             </li>
           </ul>
         </div>
