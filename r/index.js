@@ -35,9 +35,17 @@ function TimearoundModel() {
       return evs;
     }
     var selEvs = [];
-    for (var i = 0; i < evs.length; i++) {
-      if (evs[i]['category'] == cat) {
-        selEvs.push(evs[i]);
+    if (cat == "My") {
+      for (var i = 0; i < evs.length; i++) {
+        if (evs[i]['attending']()) {
+          selEvs.push(evs[i]);
+        }
+      }
+    } else {
+      for (var i = 0; i < evs.length; i++) {
+        if (evs[i]['category'] == cat) {
+          selEvs.push(evs[i]);
+        }
       }
     }
     return selEvs;
@@ -87,6 +95,12 @@ function TimearoundModel() {
     console.log("Back to home");
     toggleActive(event);
     self.selectedCategory(undefined);
+  }
+
+  self.selectMyEvents = function(data, event) {
+    console.log("Showing only my event");
+    toggleActive(event);
+    self.selectedCategory("My");
   }
 
   self.showEventDetails = function(what) {
@@ -170,6 +184,14 @@ function populateModel() {
      "date": "Saturday at 12.30am",
      "place": "Tonsley Pl",
      "owner": "Gabrielle",
+     "attending": ko.observable(false),
+    },
+    {"category": "Lunch",
+     "short": "Stroll to Tate Modern",
+     "long": "Fancy a walk to Tate Modern?",
+     "date": "Friday at 2am",
+     "place": "Battersea Park",
+     "owner": "Alex",
      "attending": ko.observable(false),
     },
     {"category": "Walks",

@@ -130,6 +130,12 @@
               <li id="homeNavElement" class="active">
                 <a href="#" data-bind="click: unselectCategory">Home</a>
               </li>
+              <li id="myEventsNavElement" data-bind="visible: isLoggedIn">
+                <a href="#" data-bind="click: selectMyEvents">
+                  <i class="icon-star"></i>
+                  My Events
+                </a>
+              </li>
               <li class="nav-header">Categories</li>
               <li>
                 <a href="#" data-bind="click: selectAllCategories">
