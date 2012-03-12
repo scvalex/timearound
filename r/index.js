@@ -58,9 +58,19 @@ function TimearoundModel() {
                                      "reviews": [],
                                      "attending": ko.observable(false),
                                     });
+  self.loginContinuation = function() { };
+
+  function assertLogin(cont) {
+    if (!self.isLoggedIn()) {
+      self.loginContinuation = cont;
+      self.showLogin();
+      throw "not_logged_in";
+    }
+  }
 
   self.showLogin = function() {
     $("#loginBox").modal();
+    $("#loginBox")[0].style.zIndex = "2060";
   }
 
   self.doLogin = function() {
@@ -69,6 +79,7 @@ function TimearoundModel() {
     if (self.enteredUsername().length > 0) {
       $("#loginBox").modal("hide");
       self.username(self.enteredUsername());
+      self.loginContinuation();
     }
   }
 
@@ -131,11 +142,13 @@ function TimearoundModel() {
   }
 
   self.attendEvent = function(ev) {
+    assertLogin(function() { self.attendEvent(ev); });
     console.log("Attending", ev);
     ev.attending(!ev.attending());
   }
 
   self.announceEvent = function() {
+    assertLogin(function () { self.announceEvent(); });
     console.log("Announcing a new event");
   }
 }
