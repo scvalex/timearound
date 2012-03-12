@@ -147,8 +147,12 @@ function TimearoundModel() {
     ev.attending(!ev.attending());
   }
 
+  self.showAnnounceEvent = function() {
+    assertLogin(function () { self.showAnnounceEvent(); });
+    $("#newEventBox").modal();
+  }
+
   self.announceEvent = function() {
-    assertLogin(function () { self.announceEvent(); });
     console.log("Announcing a new event");
   }
 }

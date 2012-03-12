@@ -110,13 +110,28 @@
       </div>
 
       <div class="modal-footer">
-        <a href="#" class="btn btn-primary" data-bind="click: attendCurrentEvent">
+        <a href="#" class="btn btn-primary"
+           data-bind="click: attendCurrentEvent">
           <span data-bind="visible: !currentEvent().attending()">
             Attend
           </span>
           <span data-bind="visible: currentEvent().attending()">
             Leave
           </span>
+        </a>
+      </div>
+    </div>
+
+    <div style="display: none" class="modal" id="newEventBox">
+      <div class="modal-header">
+      </div>
+
+      <div class="modal-body">
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" class="btn btn-success" data-bind="click: announceEvent">
+          Announce
         </a>
         <a href="#" class="btn" data-dismiss="modal">Close</a>
       </div>
@@ -154,7 +169,7 @@
             </ul>
           </div>
           <div>
-            <a class="btn" data-bind="click: announceEvent">
+            <a class="btn" data-bind="click: showAnnounceEvent">
               <i class="icon-plus"></i>
               Announce Event
             </a>
