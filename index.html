@@ -76,8 +76,11 @@
         <h5>Where: <span data-bind="text: currentEvent().place"></span></h5>
         <div id="mapCanvas"></div>
 
-        <div id="eventDescription" class="span5"
+        <div class="eventDescription span5"
              data-bind="text: currentEvent().long"></div>
+        <div class="eventSignature span5">
+          ~<span data-bind="text: currentEvent().owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
         <div id="reviewBox" class="span5">
           <h4>Reviews</h4>
@@ -149,6 +152,9 @@
               <h5><i class="icon-calendar"></i> <span data-bind="text: date"></span></h5>
               <h5><i class="icon-map-marker"></i> Around <span data-bind="text: place"></span><h5>
               <div class="eventDescription" data-bind="text: long"></div>
+              <div class="eventSignature">
+                ~<span data-bind="text: owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
               <div class="btnContainer">
                 <a href="#" class="btn" data-bind="click: $root.showEventDetails">
                   <i class="icon-list-alt"></i>

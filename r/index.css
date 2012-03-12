@@ -95,8 +95,13 @@ a:hover {
     margin-left: 0;
 }
 
-#eventDescription {
+.eventDescription {
     margin-top: 2em;
+    font-family: "Comic Sans MS";
+}
+
+.eventSignature {
+    text-align: right;
     font-family: "Comic Sans MS";
 }
 
