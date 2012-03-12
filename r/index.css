@@ -1,0 +1,16 @@
+.navbar .brand {
+    color: #333333;
+}
+
+a {
+    color: #333333;
+}
+
+a:hover {
+    color: #111111;
+}
+
+.nav-list .active > a {
+    background-color: #999999;
+    font-weight: bold;
+}
