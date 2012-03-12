@@ -80,6 +80,10 @@
       <div class="modal-body">
         <h5>When: <span data-bind="text: currentEvent().date"></span></h5>
         <h5>Where: <span data-bind="text: currentEvent().place"></span></h5>
+        <span class="explanation">
+          <i class="icon-info-sign"></i>
+          Contact <span data-bind="text: currentEvent().owner"></span> directly for more details.
+        </span>
         <div id="mapCanvas"></div>
 
         <div class="eventDescription span5"
