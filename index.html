@@ -67,10 +67,12 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="active"><a href="#">Home</a></li>
+              <li id="homeNavElement" class="active">
+                <a href="#" data-bind="click: unselectCategory">Home</a>
+              </li>
               <li class="nav-header">Categories</li>
               <li>
-                <a href="#">
+                <a href="#" data-bind="click: selectAllCategories">
                   All
                   (<span data-bind="text: events().length"></span>)
                 </a>
@@ -78,7 +80,7 @@
             </ul>
             <ul class="nav nav-list" data-bind="foreach: categories">
               <li>
-                <a href="#">
+                <a href="#" data-bind="click: $root.selectCategory">
                   <span data-bind="text: name"></span>
                   (<span data-bind="text: count"></span>)
                 </a>
@@ -86,7 +88,8 @@
             </ul>
           </div>
         </div>
-        <div class="span9">
+
+        <div class="span9" data-bind="visible: typeof selectedCategory() == 'undefined'">
           <div class="hero-unit">
             <h1>Welcome</h1>
             <p>Timearound is a place to easily find and create social
@@ -122,11 +125,46 @@
             </div>
           </div>
         </div>
+
+        <div class="eventList span6" data-bind="visible: typeof selectedCategory() != 'undefined'">
+          <h1 data-bind="text: selectedCategory"></h1>
+          <ul data-bind="foreach: selectedEvents">
+            <li>
+              <h2 data-bind="text: short"></h2>
+              <span data-bind="text: long"></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="span2 well ad" data-bind="visible: typeof selectedCategory() != 'undefined'">
+          <span class="small">
+            [ad]
+          </span>
+          <h3>Live well, Work out</h3>
+          <span>Here at the <emph>Super Gym</emph> you can finally get
+          the body you wanted (and impress all the ladies).</span>
+          <a href="#" class="btn">
+            <i class="icon-share-alt"></i>
+            Learn more
+          </a>
+        </div>
+        <div class="span2 well ad" data-bind="visible: typeof selectedCategory() != 'undefined'">
+          <span class="small">
+            [ad]
+          </span>
+          <h3>Fresh fruit. Always.</h3>
+          <span>Authentic farmers selling fresh produce.  Market open
+          every day.  Affordable prices!</span>
+          <a href="#" class="btn">
+            <i class="icon-share-alt"></i>
+            Learn more
+          </a>
+        </div>
       </div>
 
       <hr />
 
-      <footer>
+      <footer class="clear">
         <p>© Timearound 2012</p>
       </footer>
     </div>

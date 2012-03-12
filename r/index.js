@@ -22,6 +22,25 @@ function TimearoundModel() {
     }
     return cats2;
   });
+  self.selectedCategory = ko.observable(undefined);
+  self.selectedElement = $("#homeNavElement");
+  self.selectedEvents = ko.computed(function() {
+    var cat = self.selectedCategory();
+    if (typeof cat == "undefined") {
+      return [];
+    }
+    var evs = self.events();
+    if (cat == "All") {
+      return evs;
+    }
+    var selEvs = [];
+    for (var i = 0; i < evs.length; i++) {
+      if (evs[i]['category'] == cat) {
+        selEvs.push(evs[i]);
+      }
+    }
+    return selEvs;
+  });
 
   self.showLogin = function() {
     $("#loginBox").modal();
@@ -34,6 +53,31 @@ function TimearoundModel() {
       $("#loginBox").modal("hide");
       self.username(self.enteredUsername());
     }
+  }
+
+  function toggleActive(event) {
+    var li = $(event.currentTarget).parent();
+    li.toggleClass("active");
+    self.selectedElement.toggleClass("active");
+    self.selectedElement = li;
+  }
+
+  self.selectAllCategories = function(data, event) {
+    console.log("Selecting all");
+    toggleActive(event);
+    self.selectedCategory("All");
+  }
+
+  self.selectCategory = function(source, event) {
+    console.log("Selecting category", source['name']);
+    toggleActive(event);
+    self.selectedCategory(source['name']);
+  }
+
+  self.unselectCategory = function(data, event) {
+    console.log("Back to home");
+    toggleActive(event);
+    self.selectedCategory(undefined);
   }
 }
 

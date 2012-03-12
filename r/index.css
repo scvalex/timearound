@@ -28,3 +28,17 @@ a:hover {
     font-size: 1.2em;
     line-height: 3em;
 }
+
+.small {
+    font-size: 0.9em;
+    float: right;
+}
+
+.ad a.btn {
+    margin-top: 6px;
+    float: right;
+}
+
+.eventList {
+    min-height: 600px;
+}
