@@ -91,7 +91,7 @@ a:hover {
     min-height: 24em;
 }
 
-#eventBox .span5 {
+#eventBox .span5, #eventBox .span4 {
     margin-left: 0;
 }
 
@@ -100,7 +100,7 @@ a:hover {
     font-family: "Comic Sans MS";
 }
 
-.eventSignature {
+.signature {
     text-align: right;
     font-family: "Comic Sans MS";
 }
@@ -111,6 +111,13 @@ a:hover {
 
 #reviewBox h4 {
     border-bottom: 2px solid #999;
+    margin-bottom: 0.6em;
+}
+
+#reviewBox ul {
+    font-family: "Comic Sans MS";
+    list-style-type: none;
+    margin-left: 0;
 }
 
 #mapCanvas {

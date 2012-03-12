@@ -46,7 +46,8 @@ function TimearoundModel() {
                                      "short": "",
                                      "long": "",
                                      "date": "",
-                                     "place": ""});
+                                     "place": "",
+                                     "reviews": []});
 
   self.showLogin = function() {
     $("#loginBox").modal();
@@ -111,7 +112,7 @@ function TimearoundModel() {
 }
 
 function populateModel() {
-  timearoundModel.events([
+  var events = [
     {"category": "Board Games",
      "short": "Let's Scrabble all night, baby",
      "long": "Looking for a scrabble partener!",
@@ -168,7 +169,7 @@ function populateModel() {
      "place": "Battersea Power Station",
      "owner": "Alex",
     },
-  ]);
+  ];
 
   timearoundModel.ads([
     {"short": "Live well, Work out",
@@ -178,6 +179,44 @@ function populateModel() {
      "long": "Authentic farmers selling fresh produce.  Market open every day.  Affordable prices!"
     },
   ]);
+
+  var someReviews = [
+    {"positive": true,
+     "short": "Excellent!  I haven't had so much fun in ages.",
+     "owner": "Paul"},
+    {"positive": true,
+     "short": "Incredible.  Simply, incredible.",
+     "owner": "Shahin"},
+    {"positive": true,
+     "short": "Words do not exist to describe the sheer awesomeness of this.  It's really a once-in-a-lifetime opportunity.",
+     "owner": "Rhea"},
+    {"positive": false,
+     "short": "Lives on the 5th floor and there's no elevator!",
+     "owner": "Caitlin"},
+    {"positive": true,
+     "short": "I'll definitely come again!",
+     "owner": "Masha"},
+    {"positive": false,
+     "short": "Could've been worse; at least they had tea.",
+     "owner": "Corina"},
+    {"positive": true,
+     "short": "Started off badly, but we ended up playing card games, so all's well that ends well.",
+     "owner": "Silvia"},
+  ];
+
+  function rand(low, high) {
+    return Math.floor(Math.random() * (high - low + 1)) + low;
+  }
+
+  for (var i = 0; i < events.length; i++) {
+    events[i].reviews = [];
+    var numReviews = rand(0, 3);
+    for (var j = 0; j < numReviews; j++) {
+      events[i].reviews.push(someReviews[rand(0, someReviews.length - 1)]);
+    }
+  }
+
+  timearoundModel.events(events);
 }
 
 $(function() {

@@ -78,12 +78,28 @@
 
         <div class="eventDescription span5"
              data-bind="text: currentEvent().long"></div>
-        <div class="eventSignature span5">
+        <div class="signature span5">
           ~<span data-bind="text: currentEvent().owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
-        <div id="reviewBox" class="span5">
-          <h4>Reviews</h4>
+        <div id="reviewBox" class="span4" data-bind="visible: currentEvent().reviews.length > 0">
+          <h4>Guestbook</h4>
+          <ul data-bind="foreach: currentEvent().reviews">
+            <li>
+              <div>
+                <span data-bind="visible: positive">
+                  <i class="icon-ok"></i>
+                </span>
+                <span data-bind="visible: !positive">
+                  <i class="icon-remove"></i>
+                </span>
+                <span data-bind="text: short"></span>
+              </div>
+              <div class="signature">
+                ~<span data-bind="text: owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="modal-footer">
@@ -152,7 +168,7 @@
               <h5><i class="icon-calendar"></i> <span data-bind="text: date"></span></h5>
               <h5><i class="icon-map-marker"></i> Around <span data-bind="text: place"></span><h5>
               <div class="eventDescription" data-bind="text: long"></div>
-              <div class="eventSignature">
+              <div class="signature">
                 ~<span data-bind="text: owner"></span>&nbsp;&nbsp;&nbsp;&nbsp;
               </div>
               <div class="btnContainer">
