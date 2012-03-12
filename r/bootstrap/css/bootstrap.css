@@ -1812,8 +1812,13 @@ table .span12 {
   font-size: 11px;
   line-height: 14px;
 }
+
 .btn-primary,
-.btn-primary:hover,
+.btn-primary:hover {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: #333;
+}
+
 .btn-warning,
 .btn-warning:hover,
 .btn-danger,
