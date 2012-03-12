@@ -136,29 +136,18 @@
           </ul>
         </div>
 
-        <div class="span2 well ad" data-bind="visible: typeof selectedCategory() != 'undefined'">
-          <span class="small">
-            [ad]
-          </span>
-          <h3>Live well, Work out</h3>
-          <span>Here at the <emph>Super Gym</emph> you can finally get
-          the body you wanted (and impress all the ladies).</span>
-          <a href="#" class="btn">
-            <i class="icon-share-alt"></i>
-            Learn more
-          </a>
-        </div>
-        <div class="span2 well ad" data-bind="visible: typeof selectedCategory() != 'undefined'">
-          <span class="small">
-            [ad]
-          </span>
-          <h3>Fresh fruit. Always.</h3>
-          <span>Authentic farmers selling fresh produce.  Market open
-          every day.  Affordable prices!</span>
-          <a href="#" class="btn">
-            <i class="icon-share-alt"></i>
-            Learn more
-          </a>
+        <div data-bind="visible: typeof selectedCategory() != 'undefined', foreach: ads">
+          <div class="span2 well ad">
+            <span class="small">
+              [ad]
+            </span>
+            <h3 data-bind="text: short"></h3>
+            <span data-bind="text: long"></span>
+            <a href="#" class="btn">
+              <i class="icon-share-alt"></i>
+              Learn more
+            </a>
+          </div>
         </div>
       </div>
 

@@ -7,6 +7,7 @@ function TimearoundModel() {
   });
   self.enteredUsername = ko.observable("");
   self.events = ko.observable([]);
+  self.ads = ko.observable([]);
   self.categories = ko.computed(function() {
     var cats = {};
     var evs = self.events();
@@ -114,6 +115,15 @@ function populateModel() {
     {"category": "Walks",
      "short": "Geocachers",
      "long": "Going Geochaching on Saturday.  Looking for a 1-2 people to come along.  We're going to try to find around half a dozen caches hidden around the power station.  Novices and experienced geocachers welcome.",
+    },
+  ]);
+
+  timearoundModel.ads([
+    {"short": "Live well, Work out",
+     "long": "Here at the Super Gym you can finally get the body you wanted (and impress all the ladies)."
+    },
+    {"short": "Fresh fruit. Always.",
+     "long": "Authentic farmers selling fresh produce.  Market open every day.  Affordable prices!"
     },
   ]);
 }
