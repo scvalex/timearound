@@ -90,6 +90,23 @@ function TimearoundModel() {
     console.log("Showing event detail for", what);
     self.currentEvent(what);
     $("#eventBox").modal();
+
+    geocoder.geocode(
+      {'address': what['place'] + ", London, UK"},
+      function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var loc = results[0].geometry.location;
+          loc = new google.maps.LatLng(loc.lat() + 0.002, loc.lng() - 0.002);
+          map.setCenter(loc);
+          var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+          });
+          google.maps.event.trigger(map, 'resize');
+        } else {
+          console.log("Geocode was unsuccessful: ", status);
+        }
+      });
   }
 }
 
@@ -156,6 +173,17 @@ function populateModel() {
 }
 
 $(function() {
+  var map =
+    new google.maps.Map(document.getElementById("mapCanvas"),
+                        {center: new google.maps.LatLng(-34.397, 150.644),
+                         zoom: 16,
+                         disableDefaultUI: true,
+                         mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+  window.map = map;
+
+  window.geocoder = new google.maps.Geocoder();
+
   var timearoundModel = new TimearoundModel();
   window.timearoundModel = timearoundModel;
   ko.applyBindings(timearoundModel);

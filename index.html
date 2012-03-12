@@ -14,6 +14,10 @@
     <script type="text/javascript" src="r/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="r/knockout-2.0.0.js"></script>
     <script type="text/javascript" src="r/index.js"></script>
+
+    <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwMw-h8bLntjsRydO8AXjwinfD5HnGpz4&sensor=false">
+    </script>
   </head>
 
   <body>
@@ -70,6 +74,7 @@
       <div class="modal-body">
         <h5>When: <span data-bind="text: currentEvent().date"></span></h5>
         <h5>Where: <span data-bind="text: currentEvent().place"></span></h5>
+        <div id="mapCanvas"></div>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn btn-primary">Attend</a>

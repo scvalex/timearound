@@ -91,6 +91,12 @@ a:hover {
     min-height: 24em;
 }
 
+#mapCanvas {
+    float: right;
+    height: 200px;
+    width: 200px;
+}
+
 footer {
     font-size: 1.2em;
     font-weight: bold;
