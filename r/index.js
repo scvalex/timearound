@@ -23,6 +23,14 @@ function TimearoundModel() {
     }
     return cats2;
   });
+  self.categoryNames = ko.computed(function() {
+    var cats = self.categories();
+    var cats2 = [];
+    for (var i = 0; i < cats.length; i++) {
+      cats2.push(cats[i]['name']);
+    }
+    return cats2;
+  });
   self.selectedCategory = ko.observable(undefined);
   self.selectedElement = $("#homeNavElement");
   self.selectedEvents = ko.computed(function() {
@@ -60,6 +68,12 @@ function TimearoundModel() {
                                     });
   self.loginContinuation = function() { };
 
+  self.aeCategory = ko.observable("");
+  self.aeShort = ko.observable("");
+  self.aeLong = ko.observable("");
+  self.aeDate = ko.observable("");
+  self.aePlace = ko.observable("");
+
   function assertLogin(cont) {
     if (!self.isLoggedIn()) {
       self.loginContinuation = cont;
@@ -71,6 +85,7 @@ function TimearoundModel() {
   self.showLogin = function() {
     $("#loginBox").modal();
     $("#loginBox")[0].style.zIndex = "2060";
+    $("#usernameText").focus();
   }
 
   self.doLogin = function() {
@@ -153,7 +168,25 @@ function TimearoundModel() {
   }
 
   self.announceEvent = function() {
-    console.log("Announcing a new event");
+    if (self.aeShort().length > 0 &&
+        self.aeLong().length > 0 &&
+        self.aeDate().length > 0 &&
+        self.aePlace().length > 0 &&
+        self.aeCategory().length > 0)
+    {
+      console.log("Announcing a new event");
+      self.events.push(
+        {'short': self.aeShort(),
+         'long': self.aeLong(),
+         'date': self.aeDate(),
+         'place': self.aePlace(),
+         'category': self.aeCategory(),
+         'owner': self.username(),
+         'attending': ko.observable(false),
+         'reviews': [],
+        });
+      $("#newEventBox").modal("hide");
+    }
   }
 }
 

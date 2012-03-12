@@ -54,7 +54,7 @@
         <form data-bind="submit: doLogin">
           <label>Username</label>
           <input type="text" class="span3" placeholder="john123"
-                 data-bind="value: enteredUsername">
+                 id="usernameText" data-bind="value: enteredUsername">
           <label>Password</label>
           <input type="password" class="span3">
           <input type="submit" style="visibility: hidden" value="Login" />
@@ -124,9 +124,84 @@
 
     <div style="display: none" class="modal" id="newEventBox">
       <div class="modal-header">
+        <h3>New Event</h3>
       </div>
 
       <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="categorySelect">
+              Category
+            </label>
+            <select id="categorySelect" data-bind="options: categoryNames, value: aeCategory">
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="dateText">
+              Title
+            </label>
+            <input type="text" placeholder="Short description"
+                   data-bind="value: aeShort" />
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="dateText">
+              When
+            </label>
+            <input type="text" placeholder="Tuesday 12pm"
+                   data-bind="value: aeDate" />
+            <i class="icon-calendar"></i>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="dateText">
+              Where
+            </label>
+            <input type="text" placeholder="Somewhere Rd"
+                   data-bind="value: aePlace" />
+            <i class="icon-map-marker"></i>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="longText">
+              Description
+            </label>
+            <textarea id="longText" class="input-xlarge"
+                      cols="70" rows="10"
+                      data-bind="value: aeLong"
+                      placeholder="Event details, how to get there, etc.">
+            </textarea>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="revealPhoneCheck">
+              Privacy
+            </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" id="revealPhoneCheck" />
+                Reveal my phone number to attendees
+              </label>
+              <label class="checkbox">
+                <input type="checkbox" id="revealEmailCheck" />
+                Reveal my email to attendees
+              </label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="revealPhoneCheck">
+              Guestlist
+            </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" id="revealPhoneCheck" />
+                Send me the guestlist by RoyalMail
+              </label>
+            </div>
+          </div>
+        </form>
       </div>
 
       <div class="modal-footer">

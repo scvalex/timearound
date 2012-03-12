@@ -141,6 +141,10 @@ a:hover {
     text-align: center;
 }
 
+.control-label {
+    padding-right: 0.4em;
+}
+
 footer {
     font-size: 1.2em;
     font-weight: bold;
